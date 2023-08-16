@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6C2A8A5560007D2808 /* AppDelegate.swift */; };
+		524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */; };
+		524EDA712A8A5560007D2808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA702A8A5560007D2808 /* ViewController.swift */; };
+		524EDA742A8A5560007D2808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA722A8A5560007D2808 /* Main.storyboard */; };
+		524EDA762A8A5563007D2808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA752A8A5563007D2808 /* Assets.xcassets */; };
+		524EDA792A8A5563007D2808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */; };
+		524EDA822A8A5602007D2808 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 524EDA812A8A5602007D2808 /* SnapKit */; };
+		52B754EF2A8A5CA7002FA98D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754EE2A8A5CA7002FA98D /* EditViewController.swift */; };
+		52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F02A8A5CC1002FA98D /* RallyViewController.swift */; };
+		52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F22A8A5CD1002FA98D /* SetupViewController.swift */; };
+		52B754F62A8A61CF002FA98D /* GoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F52A8A61CF002FA98D /* GoViewController.swift */; };
+		52B754F82A8A955C002FA98D /* AvoidingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F72A8A955C002FA98D /* AvoidingKeyboard.swift */; };
+		52B754FA2A8A95D2002FA98D /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F92A8A95D2002FA98D /* HideKeyboard.swift */; };
+		52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19622A8B9FD500008AFC /* ColorSet.swift */; };
+		52EE19662A8BC95100008AFC /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19652A8BC95100008AFC /* Teams.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		524EDA692A8A5560007D2808 /* GoRally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoRally.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		524EDA6C2A8A5560007D2808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		524EDA702A8A5560007D2808 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		524EDA732A8A5560007D2808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		524EDA752A8A5563007D2808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		524EDA782A8A5563007D2808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		524EDA7A2A8A5563007D2808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B754EE2A8A5CA7002FA98D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		52B754F02A8A5CC1002FA98D /* RallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyViewController.swift; sourceTree = "<group>"; };
+		52B754F22A8A5CD1002FA98D /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		52B754F52A8A61CF002FA98D /* GoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoViewController.swift; sourceTree = "<group>"; };
+		52B754F72A8A955C002FA98D /* AvoidingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvoidingKeyboard.swift; sourceTree = "<group>"; };
+		52B754F92A8A95D2002FA98D /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		52EE19622A8B9FD500008AFC /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		52EE19652A8BC95100008AFC /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		524EDA662A8A5560007D2808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524EDA822A8A5602007D2808 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		524EDA602A8A5560007D2808 = {
+			isa = PBXGroup;
+			children = (
+				524EDA6B2A8A5560007D2808 /* GoRally */,
+				524EDA6A2A8A5560007D2808 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		524EDA6A2A8A5560007D2808 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				524EDA692A8A5560007D2808 /* GoRally.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		524EDA6B2A8A5560007D2808 /* GoRally */ = {
+			isa = PBXGroup;
+			children = (
+				524EDA6C2A8A5560007D2808 /* AppDelegate.swift */,
+				524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */,
+				52B754F72A8A955C002FA98D /* AvoidingKeyboard.swift */,
+				52B754F92A8A95D2002FA98D /* HideKeyboard.swift */,
+				52EE19642A8BC93E00008AFC /* Team Data */,
+				52EE19612A8B9FBD00008AFC /* Extensions */,
+				52B754F42A8A5D02002FA98D /* Controllers */,
+				524EDA722A8A5560007D2808 /* Main.storyboard */,
+				524EDA752A8A5563007D2808 /* Assets.xcassets */,
+				524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */,
+				524EDA7A2A8A5563007D2808 /* Info.plist */,
+			);
+			path = GoRally;
+			sourceTree = "<group>";
+		};
+		52B754F42A8A5D02002FA98D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				524EDA702A8A5560007D2808 /* ViewController.swift */,
+				52B754F52A8A61CF002FA98D /* GoViewController.swift */,
+				52B754EE2A8A5CA7002FA98D /* EditViewController.swift */,
+				52B754F02A8A5CC1002FA98D /* RallyViewController.swift */,
+				52B754F22A8A5CD1002FA98D /* SetupViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		52EE19612A8B9FBD00008AFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52EE19622A8B9FD500008AFC /* ColorSet.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52EE19642A8BC93E00008AFC /* Team Data */ = {
+			isa = PBXGroup;
+			children = (
+				52EE19652A8BC95100008AFC /* Teams.swift */,
+			);
+			path = "Team Data";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		524EDA682A8A5560007D2808 /* GoRally */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524EDA7D2A8A5563007D2808 /* Build configuration list for PBXNativeTarget "GoRally" */;
+			buildPhases = (
+				524EDA652A8A5560007D2808 /* Sources */,
+				524EDA662A8A5560007D2808 /* Frameworks */,
+				524EDA672A8A5560007D2808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoRally;
+			packageProductDependencies = (
+				524EDA812A8A5602007D2808 /* SnapKit */,
+			);
+			productName = GoRally;
+			productReference = 524EDA692A8A5560007D2808 /* GoRally.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		524EDA612A8A5560007D2808 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					524EDA682A8A5560007D2808 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 524EDA642A8A5560007D2808 /* Build configuration list for PBXProject "GoRally" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 524EDA602A8A5560007D2808;
+			packageReferences = (
+				524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = 524EDA6A2A8A5560007D2808 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				524EDA682A8A5560007D2808 /* GoRally */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		524EDA672A8A5560007D2808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524EDA792A8A5563007D2808 /* LaunchScreen.storyboard in Resources */,
+				524EDA762A8A5563007D2808 /* Assets.xcassets in Resources */,
+				524EDA742A8A5560007D2808 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		524EDA652A8A5560007D2808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B754EF2A8A5CA7002FA98D /* EditViewController.swift in Sources */,
+				524EDA712A8A5560007D2808 /* ViewController.swift in Sources */,
+				524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */,
+				52B754F82A8A955C002FA98D /* AvoidingKeyboard.swift in Sources */,
+				52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */,
+				52EE19662A8BC95100008AFC /* Teams.swift in Sources */,
+				52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */,
+				52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */,
+				524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */,
+				52B754FA2A8A95D2002FA98D /* HideKeyboard.swift in Sources */,
+				52B754F62A8A61CF002FA98D /* GoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		524EDA722A8A5560007D2808 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524EDA732A8A5560007D2808 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524EDA782A8A5563007D2808 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		524EDA7B2A8A5563007D2808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		524EDA7C2A8A5563007D2808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		524EDA7E2A8A5563007D2808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874KCYK555;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoRally/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donwolfton.GoRally;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		524EDA7F2A8A5563007D2808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874KCYK555;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoRally/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donwolfton.GoRally;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		524EDA642A8A5560007D2808 /* Build configuration list for PBXProject "GoRally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524EDA7B2A8A5563007D2808 /* Debug */,
+				524EDA7C2A8A5563007D2808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524EDA7D2A8A5563007D2808 /* Build configuration list for PBXNativeTarget "GoRally" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524EDA7E2A8A5563007D2808 /* Debug */,
+				524EDA7F2A8A5563007D2808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		524EDA812A8A5602007D2808 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 524EDA612A8A5560007D2808 /* Project object */;
+}
