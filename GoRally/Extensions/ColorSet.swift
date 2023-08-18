@@ -12,5 +12,7 @@ import UIKit
 
 extension UIColor {
     static let texts = UIColor(named: "insideText")
+    static let fields = UIColor(named: "insideFields")
+    static let theme = UIColor(named: "theme")
 }
 

@@ -31,7 +31,11 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     let nameField: UITextField = {
         let name = UITextField()
         name.backgroundColor = .white
-        name.placeholder = "Enter team name"
+        //name.placeholder = "Enter team name"
+        name.attributedPlaceholder = NSAttributedString(
+            string: "Enter team name",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.texts]
+        )
         return name
     }()
 
@@ -39,7 +43,11 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     let passwordField: UITextField = {
         let pass = UITextField()
         pass.backgroundColor = .white
-        pass.placeholder = "Enter password"
+        //pass.placeholder = "Enter password"
+        pass.attributedPlaceholder = NSAttributedString(
+            string: "Enter password",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.texts]
+        )
         return pass
     }()
 
@@ -49,7 +57,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
 
         hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = .white
+        view.backgroundColor = .theme
 
         view.addSubview(helloTitle)
         helloTitle.snp.makeConstraints {
@@ -116,6 +124,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         tabBarVC.setViewControllers([goVC, editVC, rallyVC, setupVC], animated: false)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.view.isOpaque = true
+        tabBarVC.tabBar.backgroundColor = .theme
         present(tabBarVC, animated: false)
     }
 
@@ -132,20 +141,23 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }
 
     private func checkLogin() {
-        if nameField.text != "Azaza" || passwordField.text != "1408" {
+
+        if teamsArray.contains(nameField.text ?? "") && passwordsArray.contains(passwordField.text ?? "") {
+            createTabBar()
+            nameField.text = nil
+            passwordField.text = nil
+        } else {
 
             let alert = UIAlertController(title: "Error", message: "Incorrect data!", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
 
             self.present(alert, animated: true)
-        } else {
-            createTabBar()
-            nameField.text = nil
-            passwordField.text = nil
         }
     }
 
 
+
 }
+
 

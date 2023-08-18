@@ -22,7 +22,7 @@ class RallyViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
         label.layer.borderWidth = 1
-        label.backgroundColor = .cyan
+        label.backgroundColor = .white
         return label
     }()
 
@@ -30,7 +30,7 @@ class RallyViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
         label.layer.borderWidth = 1
-        label.backgroundColor = .cyan
+        label.backgroundColor = .white
         return label
     }()
 
@@ -38,7 +38,7 @@ class RallyViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
         label.layer.borderWidth = 1
-        label.backgroundColor = .cyan
+        label.backgroundColor = .white
         return label
     }()
 
@@ -51,8 +51,8 @@ class RallyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.backgroundColor =  .white
+
+        view.backgroundColor =  .theme
         title = "Rally"
 
         view.addSubview(speedField)
@@ -91,8 +91,6 @@ class RallyViewController: UIViewController {
         }
         startButton.layer.cornerRadius = 25
         startButton.addTarget(self, action: #selector(startButtonTap), for: .touchUpInside)
-        //startButton.addTarget(self, action: #selector(changeState), for: .touchUpInside)
-
 
         view.addSubview(directionView)
         directionView.snp.makeConstraints {
@@ -101,8 +99,6 @@ class RallyViewController: UIViewController {
             $0.width.equalTo(150)
             $0.height.equalTo(150)
         }
-
-
         
     }
 

@@ -13,13 +13,13 @@
 		524EDA742A8A5560007D2808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA722A8A5560007D2808 /* Main.storyboard */; };
 		524EDA762A8A5563007D2808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA752A8A5563007D2808 /* Assets.xcassets */; };
 		524EDA792A8A5563007D2808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */; };
-		524EDA822A8A5602007D2808 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 524EDA812A8A5602007D2808 /* SnapKit */; };
 		52B754EF2A8A5CA7002FA98D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754EE2A8A5CA7002FA98D /* EditViewController.swift */; };
 		52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F02A8A5CC1002FA98D /* RallyViewController.swift */; };
 		52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F22A8A5CD1002FA98D /* SetupViewController.swift */; };
 		52B754F62A8A61CF002FA98D /* GoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F52A8A61CF002FA98D /* GoViewController.swift */; };
 		52B754F82A8A955C002FA98D /* AvoidingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F72A8A955C002FA98D /* AvoidingKeyboard.swift */; };
 		52B754FA2A8A95D2002FA98D /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F92A8A95D2002FA98D /* HideKeyboard.swift */; };
+		52CC57C22A8FA2E9001A5597 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 52CC57C12A8FA2E9001A5597 /* SnapKit */; };
 		52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19622A8B9FD500008AFC /* ColorSet.swift */; };
 		52EE19662A8BC95100008AFC /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19652A8BC95100008AFC /* Teams.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524EDA822A8A5602007D2808 /* SnapKit in Frameworks */,
+				52CC57C22A8FA2E9001A5597 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			);
 			name = GoRally;
 			packageProductDependencies = (
-				524EDA812A8A5602007D2808 /* SnapKit */,
+				52CC57C12A8FA2E9001A5597 /* SnapKit */,
 			);
 			productName = GoRally;
 			productReference = 524EDA692A8A5560007D2808 /* GoRally.app */;
@@ -165,7 +165,7 @@
 			);
 			mainGroup = 524EDA602A8A5560007D2808;
 			packageReferences = (
-				524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 524EDA6A2A8A5560007D2808 /* Products */;
 			projectDirPath = "";
@@ -432,7 +432,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -443,9 +443,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		524EDA812A8A5602007D2808 /* SnapKit */ = {
+		52CC57C12A8FA2E9001A5597 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 524EDA802A8A5602007D2808 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -13,7 +13,7 @@ class GoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
+        view.backgroundColor = .theme
         title = "Go"
     }
 

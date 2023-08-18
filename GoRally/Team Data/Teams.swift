@@ -17,3 +17,7 @@ enum Passwords {
     static let vlad = "1986"
 
 }
+
+let teamsArray = ["86", "33"]
+let passwordsArray = ["1408", "1986"]
+
