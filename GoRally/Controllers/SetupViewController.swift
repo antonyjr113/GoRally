@@ -17,12 +17,53 @@ class SetupViewController: UIViewController {
         return button
     }()
 
+    let timeIntervalStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+
+    let intervalField: UITextField = {
+        let field = UITextField()
+        field.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        field.backgroundColor = .fields
+        field.textAlignment = .center
+        field.font = .systemFont(ofSize: 24)
+        field.text = "1"
+        return field
+    }()
+
+    let intervalText: UILabel = {
+        let text = UILabel()
+        text.frame = CGRect(x: 0, y: 0, width: 10, height: 20)
+        text.backgroundColor = .theme
+        text.font = .systemFont(ofSize: 24)
+        text.text = "Set record interval, sec"
+        return text
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         view.backgroundColor = .theme
         title = "Setup"
+
+        view.addSubview(timeIntervalStack)
+        timeIntervalStack.backgroundColor = .texts
+        timeIntervalStack.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(120)
+            $0.leading.trailing.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+
+        timeIntervalStack.addArrangedSubview(intervalText)
+
+        timeIntervalStack.addArrangedSubview(intervalField)
+        intervalField.snp.makeConstraints {
+            $0.width.height.equalTo(50)
+        }
+        //timeIntervalStack.layer.borderWidth = 1
 
         view.addSubview(logoutButton)
         logoutButton.snp.makeConstraints {

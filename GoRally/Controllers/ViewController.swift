@@ -99,13 +99,14 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }
 
     @objc func loginButtonTap() {
-        checkLogin()
+        //checkLogin()
+        createTabBar()
     }
 
     private func createTabBar() {
 
         let goVC = UINavigationController(rootViewController: GoViewController())
-        let editVC = UINavigationController(rootViewController: EditViewController())
+        let editVC = UINavigationController(rootViewController: RoutesViewController())
         let rallyVC = UINavigationController(rootViewController: RallyViewController())
         let setupVC = UINavigationController(rootViewController: SetupViewController())
 

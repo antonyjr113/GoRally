@@ -7,10 +7,19 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class RallyViewController: UIViewController {
 
     var tapOnStart = 0
+
+    private lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        manager.startUpdatingLocation()
+        return manager
+    }()
 
     let directionView: UIImageView = {
         let direct = UIImageView()
@@ -117,6 +126,15 @@ class RallyViewController: UIViewController {
             distanceField.text = "0"
             timerField.text = "0"
             tapOnStart = 0
+        }
+    }
+}
+
+extension RallyViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = manager.location?.coordinate {
+            print(coordinate.latitude)
+            print(coordinate.longitude)
         }
     }
 }

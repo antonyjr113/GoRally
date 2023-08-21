@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let routesTable = UITableView()
 
@@ -26,6 +26,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         routesTable.dataSource = self
 
         routesTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
 
         routesTable.backgroundColor = .theme
 
@@ -42,13 +43,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return rallyArray.count
     }
 
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        cell.textLabel?.text = rallyArray[indexPath.row]
+//        cell.textLabel?.font = .systemFont(ofSize: 26)
+//        cell.textLabel?.textColor = .texts
+//        cell.backgroundColor = .theme
+//        return cell
+//    }
+//    нормально работает
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = rallyArray[indexPath.row]
-        cell.textLabel?.font = .systemFont(ofSize: 26)
-        cell.textLabel?.textColor = .texts
-        cell.backgroundColor = .theme
-        return cell
+        guard
+            let customCell: CustomRouteCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomRouteCell
+        else {
+                return UITableViewCell()
+            }
+        customCell.backgroundColor = .systemBlue
+        return customCell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,6 +68,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("cell tapped")
     }
 
-
+    func openRoute() {
+        
+    }
 
 }
