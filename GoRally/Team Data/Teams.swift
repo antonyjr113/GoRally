@@ -21,3 +21,6 @@ enum Passwords {
 let teamsArray = ["86", "33"]
 let passwordsArray = ["1408", "1986"]
 
+let dictTeams: [String : String] = ["86" : "1408", "33" : "1986"]
+
+

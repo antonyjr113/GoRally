@@ -10,7 +10,13 @@ import UIKit
 
 class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let routesTable = UITableView()
+    let routesTable: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = .theme
+        table.allowsSelection = true
+        table.register(RouteTableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
 
     let rallyArray = ["Rally 1", "Rally 2", "Rally 3", "Rally 4", "Rally 5",  "Rally 6",  "Rally 7",  "Rally 8",  "Rally 9",  "Rally 10", "Rally 11", "Rally 12", "Rally 13"]
 
@@ -18,7 +24,7 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         view.backgroundColor = .theme
-        title = "Edit"
+        title = "Routes"
 
         view.addSubview(routesTable)
 
@@ -43,33 +49,38 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return rallyArray.count
     }
 
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        cell.textLabel?.text = rallyArray[indexPath.row]
-//        cell.textLabel?.font = .systemFont(ofSize: 26)
-//        cell.textLabel?.textColor = .texts
-//        cell.backgroundColor = .theme
-//        return cell
-//    }
-//    нормально работает
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let customCell: CustomRouteCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomRouteCell
-        else {
-                return UITableViewCell()
-            }
-        customCell.backgroundColor = .systemBlue
-        return customCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = rallyArray[indexPath.row]
+        cell.textLabel?.font = .systemFont(ofSize: 26)
+        cell.backgroundColor = .theme
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         tableView.deselectRow(at: indexPath, animated: true)
-        print("cell tapped")
+
+        let routeVC = UIViewController()
+        routeVC.view.backgroundColor = .theme
+        routeVC.modalPresentationStyle = .pageSheet
+
+        let routeVCTitle = UILabel()
+        routeVCTitle.text = rallyArray[indexPath.row]
+
+        routeVC.view.addSubview(routeVCTitle)
+        routeVCTitle.textAlignment = .center
+        routeVCTitle.textColor = .texts
+        routeVCTitle.font = .systemFont(ofSize: 30)
+
+        routeVCTitle.snp.makeConstraints {
+            $0.top.equalTo(30)
+            $0.width.equalToSuperview().offset(15)
+            $0.height.equalTo(40)
+        }
+        present(routeVC, animated: true)
     }
 
-    func openRoute() {
-        
-    }
 
 }

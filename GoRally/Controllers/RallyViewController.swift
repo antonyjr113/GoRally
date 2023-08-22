@@ -13,6 +13,12 @@ class RallyViewController: UIViewController {
 
     var tapOnStart = 0
 
+    var stopwatch = Timer()
+
+    var seconds = 0
+
+    var startStopwatch = Bool()
+
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -112,21 +118,74 @@ class RallyViewController: UIViewController {
     }
 
     @objc private func startButtonTap() {
+
         tapOnStart += 1
-        speedField.text = "200kmh"
-        distanceField.text = "3.54km"
-        timerField.text = "0:00:00"
+        startStopwatch = true
+        speedField.text = "200"
+        distanceField.text = "\(locationManager.location)"
+        stopwatchStart()
+
         directionView.image = UIImage(named: "turn_right")
         startButton.backgroundColor = .systemRed
         startButton.setTitle("Stop", for: .normal)
+
         if tapOnStart == 2 {
+            startStopwatch = false
             startButton.backgroundColor = .blue
             startButton.setTitle("Start", for: .normal)
             speedField.text = "0"
             distanceField.text = "0"
-            timerField.text = "0"
+
+            //timerField.text = "\(resetStopwatch())"
             tapOnStart = 0
+            resetStopwatch()
         }
+    }
+
+    private func stopwatchStart() {
+        stopwatch = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCount), userInfo: nil, repeats: true)
+    }
+
+    @objc private func startCount() {
+        seconds = seconds + 1
+        let time = convertSecondsToTime(seconds: seconds)
+        let timeString = showTimeInString(hours: time.0, minutes: time.1, seconds: time.2)
+        timerField.text = timeString
+    }
+
+    private func convertSecondsToTime(seconds: Int) -> (Int, Int, Int) {
+        return ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
+    }
+
+    private func resetStopwatch() {
+        if startStopwatch == false {
+            stopwatch.invalidate()
+            timerField.text = showTimeInString(hours: 0, minutes: 0, seconds: 0)
+        }
+    }
+
+    private func showTimeInString(hours: Int, minutes: Int, seconds: Int) -> String {
+
+        var timeString = ""
+
+        timeString += String(format: "0%2d", hours)
+        timeString += " : "
+
+        if minutes < 10 {
+            timeString += String(format: "0%d", minutes)
+        } else {
+            timeString += String(format: "%d", minutes)
+        }
+        timeString += " : "
+
+        if seconds < 10 {
+            timeString += String(format: "0%d", seconds)
+        } else {
+            timeString += String(format: "%d", seconds)
+        }
+
+        return timeString
+
     }
 }
 

@@ -99,8 +99,8 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }
 
     @objc func loginButtonTap() {
-        //checkLogin()
-        createTabBar()
+        checkLoginDict()
+        //createTabBar()
     }
 
     private func createTabBar() {
@@ -111,7 +111,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         let setupVC = UINavigationController(rootViewController: SetupViewController())
 
         goVC.title = "Go"
-        editVC.title = "Edit"
+        editVC.title = "Routes"
         rallyVC.title = "Rally"
         setupVC.title = "Setup"
 
@@ -127,6 +127,24 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         tabBarVC.view.isOpaque = true
         tabBarVC.tabBar.backgroundColor = .theme
         present(tabBarVC, animated: false)
+
+        if #available(iOS 15, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor : UIColor.texts
+            ]
+            navigationBarAppearance.backgroundColor = UIColor.theme
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+
+            let tabBarApperance = UITabBarAppearance()
+            tabBarApperance.configureWithOpaqueBackground()
+            tabBarApperance.backgroundColor = UIColor.theme
+            UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+            UITabBar.appearance().standardAppearance = tabBarApperance
+        }
     }
 
     func hideKeyboardWhenTappedAround() {
@@ -157,8 +175,30 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         }
     }
 
+    private func checkLoginDict() {
 
+        let dictTeams: [String : String] = ["86" : "1408", "33" : "1986"]
 
+        for (team, pass) in dictTeams {
+            if nameField.text == team && passwordField.text == pass {
+                createTabBar()
+                nameField.text = nil
+                passwordField.text = nil
+
+            } else {
+
+                let alert = UIAlertController(title: "Error", message: "Incorrect data!", preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
+
+                self.present(alert, animated: true)
+            }
+        }
+    }
 }
+
+
+
+
 
 
