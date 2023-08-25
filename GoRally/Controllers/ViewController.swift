@@ -99,7 +99,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }
 
     @objc func loginButtonTap() {
-        checkLoginDict()
+        checkLoginStruct()
         //createTabBar()
     }
 
@@ -175,12 +175,13 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         }
     }
 
-    private func checkLoginDict() {
+    private func checkLoginStruct() {
 
-        let dictTeams: [String : String] = ["86" : "1408", "33" : "1986"]
+        let userData = Team(teamName: nameField.text ?? "", teamPass: passwordField.text ?? "")
 
-        for (team, pass) in dictTeams {
-            if nameField.text == team && passwordField.text == pass {
+        for element in teamsArrayStruct {
+
+            if element.teamName == userData.teamName && element.teamPass == userData.teamPass {
                 createTabBar()
                 nameField.text = nil
                 passwordField.text = nil

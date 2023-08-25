@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SetupViewController: UIViewController {
+class SetupViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTappedAround {
 
     let logoutButton: UIButton = {
         let button = UIButton()
@@ -87,6 +87,18 @@ class SetupViewController: UIViewController {
         self.present(alert, animated: true)
 
 
+    }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+
+    @objc
+    private func dismissKeyboard() {
+        view.endEditing(true)
     }
 
 

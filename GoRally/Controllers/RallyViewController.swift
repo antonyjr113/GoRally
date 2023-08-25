@@ -13,7 +13,7 @@ class RallyViewController: UIViewController {
 
     var tapOnStart = 0
 
-    var stopwatch = Timer()
+    var stopwatch: Timer?
 
     var seconds = 0
 
@@ -31,6 +31,13 @@ class RallyViewController: UIViewController {
         let direct = UIImageView()
         direct.backgroundColor = .systemGray2
         return direct
+    }()
+
+    lazy var speedFieldTitle: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        label.textColor = .texts
+        label.backgroundColor = .theme
+        return label
     }()
 
     lazy var speedField: UILabel = {
@@ -69,6 +76,14 @@ class RallyViewController: UIViewController {
 
         view.backgroundColor =  .theme
         title = "Rally"
+
+        view.addSubview(speedFieldTitle)
+        speedFieldTitle.snp.makeConstraints {
+            $0.top.equalTo(220)
+            $0.leading.equalTo(15)
+            $0.trailing.equalTo(-15)
+            $0.width.equalTo(200)
+        }
 
         view.addSubview(speedField)
         speedField.snp.makeConstraints {
@@ -120,9 +135,9 @@ class RallyViewController: UIViewController {
     @objc private func startButtonTap() {
 
         tapOnStart += 1
-        startStopwatch = true
+
         speedField.text = "200"
-        distanceField.text = "\(locationManager.location)"
+        distanceField.text = "\(String(describing: locationManager.location))"
         stopwatchStart()
 
         directionView.image = UIImage(named: "turn_right")
@@ -130,16 +145,15 @@ class RallyViewController: UIViewController {
         startButton.setTitle("Stop", for: .normal)
 
         if tapOnStart == 2 {
-            startStopwatch = false
+
             startButton.backgroundColor = .blue
             startButton.setTitle("Start", for: .normal)
-            speedField.text = "0"
-            distanceField.text = "0"
-
-            //timerField.text = "\(resetStopwatch())"
+            speedField.text = "0000000"
+            distanceField.text = "00000000"
             tapOnStart = 0
             resetStopwatch()
         }
+
     }
 
     private func stopwatchStart() {
@@ -158,10 +172,9 @@ class RallyViewController: UIViewController {
     }
 
     private func resetStopwatch() {
-        if startStopwatch == false {
-            stopwatch.invalidate()
+            stopwatch?.invalidate()
+            stopwatch = nil
             timerField.text = showTimeInString(hours: 0, minutes: 0, seconds: 0)
-        }
     }
 
     private func showTimeInString(hours: Int, minutes: Int, seconds: Int) -> String {
@@ -187,6 +200,15 @@ class RallyViewController: UIViewController {
         return timeString
 
     }
+
+//    private func showSpeed() {
+//
+//        var currentCoordinate = CLLocation(latitude: 0, longitude: 0)
+//
+//        var currentTime = stopwatch.timeInterval
+//
+//        var currnetSpeed = (currentCoordinate)
+//    }
 }
 
 extension RallyViewController: CLLocationManagerDelegate {
