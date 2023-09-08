@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524C8ABF2AA9EF3000A737B9 /* RouteShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */; };
 		524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6C2A8A5560007D2808 /* AppDelegate.swift */; };
 		524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */; };
 		524EDA712A8A5560007D2808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA702A8A5560007D2808 /* ViewController.swift */; };
@@ -23,9 +24,12 @@
 		52CC57C22A8FA2E9001A5597 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 52CC57C12A8FA2E9001A5597 /* SnapKit */; };
 		52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19622A8B9FD500008AFC /* ColorSet.swift */; };
 		52EE19662A8BC95100008AFC /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EE19652A8BC95100008AFC /* Teams.swift */; };
+		52FDC67E2AA7AF00003F697E /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FDC67D2AA7AF00003F697E /* RouteModel.swift */; };
+		52FDC6802AA899E2003F697E /* RouteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FDC67F2AA899E2003F697E /* RouteTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteShowViewController.swift; sourceTree = "<group>"; };
 		524EDA692A8A5560007D2808 /* GoRally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoRally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524EDA6C2A8A5560007D2808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,8 @@
 		52B754F92A8A95D2002FA98D /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		52EE19622A8B9FD500008AFC /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		52EE19652A8BC95100008AFC /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		52FDC67D2AA7AF00003F697E /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
+		52FDC67F2AA899E2003F697E /* RouteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				524EDA752A8A5563007D2808 /* Assets.xcassets */,
 				524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */,
 				524EDA7A2A8A5563007D2808 /* Info.plist */,
+				52FDC67C2AA7AEE4003F697E /* Model */,
 			);
 			path = GoRally;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */,
 				52B754F02A8A5CC1002FA98D /* RallyViewController.swift */,
 				52B754F22A8A5CD1002FA98D /* SetupViewController.swift */,
+				524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -118,6 +126,15 @@
 				52EE19652A8BC95100008AFC /* Teams.swift */,
 			);
 			path = "Team Data";
+			sourceTree = "<group>";
+		};
+		52FDC67C2AA7AEE4003F697E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52FDC67D2AA7AF00003F697E /* RouteModel.swift */,
+				52FDC67F2AA899E2003F697E /* RouteTableView.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,12 +214,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524C8ABF2AA9EF3000A737B9 /* RouteShowViewController.swift in Sources */,
 				52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */,
 				52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */,
 				524EDA712A8A5560007D2808 /* ViewController.swift in Sources */,
+				52FDC67E2AA7AF00003F697E /* RouteModel.swift in Sources */,
 				524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */,
 				52B754F82A8A955C002FA98D /* AvoidingKeyboard.swift in Sources */,
 				52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */,
+				52FDC6802AA899E2003F697E /* RouteTableView.swift in Sources */,
 				52EE19662A8BC95100008AFC /* Teams.swift in Sources */,
 				52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */,
 				52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */,

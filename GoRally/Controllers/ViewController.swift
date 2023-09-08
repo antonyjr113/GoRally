@@ -99,8 +99,8 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }
 
     @objc func loginButtonTap() {
-        checkLoginStruct()
-        //createTabBar()
+        //checkLoginStruct()
+        createTabBar()
     }
 
     private func createTabBar() {

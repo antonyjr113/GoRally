@@ -133,28 +133,27 @@ class RallyViewController: UIViewController {
     }
 
     @objc private func startButtonTap() {
-
         tapOnStart += 1
 
-        speedField.text = "200"
-        distanceField.text = "\(String(describing: locationManager.location))"
-        stopwatchStart()
+        if tapOnStart == 1 {
+            speedField.text = "200"
+            distanceField.text = "\(String(describing: locationManager.location))"
+            stopwatchStart()
 
-        directionView.image = UIImage(named: "turn_right")
-        startButton.backgroundColor = .systemRed
-        startButton.setTitle("Stop", for: .normal)
-
-        if tapOnStart == 2 {
-
+            directionView.image = UIImage(named: "turn_right")
+            startButton.backgroundColor = .systemRed
+            startButton.setTitle("Stop", for: .normal)
+        } else {
             startButton.backgroundColor = .blue
             startButton.setTitle("Start", for: .normal)
             speedField.text = "0000000"
             distanceField.text = "00000000"
             tapOnStart = 0
             resetStopwatch()
+            seconds = 0
         }
-
     }
+
 
     private func stopwatchStart() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCount), userInfo: nil, repeats: true)
@@ -201,14 +200,18 @@ class RallyViewController: UIViewController {
 
     }
 
-//    private func showSpeed() {
-//
-//        var currentCoordinate = CLLocation(latitude: 0, longitude: 0)
-//
-//        var currentTime = stopwatch.timeInterval
-//
-//        var currnetSpeed = (currentCoordinate)
-//    }
+    private func showSpeed() {
+
+        var currentCoordinate = CLLocation(latitude: 1, longitude: 1)
+
+        var prevCoordinate =  CLLocation(latitude: 0, longitude: 0)
+
+        //let speed = CLLocationSpeed(exactly: locationManage<#T##BinaryInteger#>)
+
+
+
+
+    }
 }
 
 extension RallyViewController: CLLocationManagerDelegate {
@@ -217,5 +220,20 @@ extension RallyViewController: CLLocationManagerDelegate {
             print(coordinate.latitude)
             print(coordinate.longitude)
         }
+    }
+}
+
+extension CLLocation {
+
+    /// Get distance between two points
+    ///
+    /// - Parameters:
+    ///   - from: first point
+    ///   - to: second point
+    /// - Returns: the distance in meters
+    class func distance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
+        let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        return from.distance(from: to)
     }
 }
