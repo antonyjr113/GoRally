@@ -11,8 +11,6 @@ import PDFKit
 
 class RouteShowViewController: UIViewController, WKUIDelegate {
 
-    //let doc:  PDFDocument? = nil
-
     var webView: WKWebView!
 
 
@@ -36,14 +34,6 @@ class RouteShowViewController: UIViewController, WKUIDelegate {
         webView.load(myRequest)
     }
 
-    //    func createRouteViewPDF(pdf: PDFDocument) {
-    //        let routeVC = UIViewController()
-    //        routeVC.view.backgroundColor = .theme
-    //        routeVC.modalPresentationStyle = .pageSheet
-    //
-    //        routeVC.view.addSubview(pdf)
-    //
-    //    }
 }
 
 

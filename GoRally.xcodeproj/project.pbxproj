@@ -14,6 +14,9 @@
 		524EDA742A8A5560007D2808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA722A8A5560007D2808 /* Main.storyboard */; };
 		524EDA762A8A5563007D2808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA752A8A5563007D2808 /* Assets.xcassets */; };
 		524EDA792A8A5563007D2808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */; };
+		524F19682AAC696900A82D1B /* RaceDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F19672AAC696900A82D1B /* RaceDataManager.swift */; };
+		524F196D2AAE2A2C00A82D1B /* LoggingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F196C2AAE2A2C00A82D1B /* LoggingManager.swift */; };
+		524F196F2AAE34EA00A82D1B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F196E2AAE34EA00A82D1B /* UserDefaultsManager.swift */; };
 		52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */; };
 		52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */; };
 		52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F02A8A5CC1002FA98D /* RallyViewController.swift */; };
@@ -38,6 +41,9 @@
 		524EDA752A8A5563007D2808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		524EDA782A8A5563007D2808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		524EDA7A2A8A5563007D2808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524F19672AAC696900A82D1B /* RaceDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDataManager.swift; sourceTree = "<group>"; };
+		524F196C2AAE2A2C00A82D1B /* LoggingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingManager.swift; sourceTree = "<group>"; };
+		524F196E2AAE34EA00A82D1B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		52B754F02A8A5CC1002FA98D /* RallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyViewController.swift; sourceTree = "<group>"; };
@@ -93,9 +99,20 @@
 				524EDA752A8A5563007D2808 /* Assets.xcassets */,
 				524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */,
 				524EDA7A2A8A5563007D2808 /* Info.plist */,
+				524F19662AAC693A00A82D1B /* Managers */,
 				52FDC67C2AA7AEE4003F697E /* Model */,
 			);
 			path = GoRally;
+			sourceTree = "<group>";
+		};
+		524F19662AAC693A00A82D1B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				524F19672AAC696900A82D1B /* RaceDataManager.swift */,
+				524F196C2AAE2A2C00A82D1B /* LoggingManager.swift */,
+				524F196E2AAE34EA00A82D1B /* UserDefaultsManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		52B754F42A8A5D02002FA98D /* Controllers */ = {
@@ -220,9 +237,12 @@
 				524EDA712A8A5560007D2808 /* ViewController.swift in Sources */,
 				52FDC67E2AA7AF00003F697E /* RouteModel.swift in Sources */,
 				524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */,
+				524F196D2AAE2A2C00A82D1B /* LoggingManager.swift in Sources */,
 				52B754F82A8A955C002FA98D /* AvoidingKeyboard.swift in Sources */,
+				524F196F2AAE34EA00A82D1B /* UserDefaultsManager.swift in Sources */,
 				52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */,
 				52FDC6802AA899E2003F697E /* RouteTableView.swift in Sources */,
+				524F19682AAC696900A82D1B /* RaceDataManager.swift in Sources */,
 				52EE19662A8BC95100008AFC /* Teams.swift in Sources */,
 				52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */,
 				52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */,

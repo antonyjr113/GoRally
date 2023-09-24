@@ -10,6 +10,7 @@ import SnapKit
 
 class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTappedAround {
 
+
     let helloTitle: UILabel = {
         let label = UILabel()
         label.text = "Let's race!"
@@ -19,7 +20,6 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         return label
     }()
 
-    /// login button
     let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
@@ -27,7 +27,6 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         return button
     }()
 
-    /// name team field
     let nameField: UITextField = {
         let name = UITextField()
         name.backgroundColor = .white
@@ -105,24 +104,24 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
 
     private func createTabBar() {
 
-        let goVC = UINavigationController(rootViewController: GoViewController())
+        //let goVC = UINavigationController(rootViewController: GoViewController())
         let editVC = UINavigationController(rootViewController: RoutesViewController())
         let rallyVC = UINavigationController(rootViewController: RallyViewController())
         let setupVC = UINavigationController(rootViewController: SetupViewController())
 
-        goVC.title = "Go"
+        //goVC.title = "Go"
         editVC.title = "Routes"
         rallyVC.title = "Rally"
         setupVC.title = "Setup"
 
 
-        goVC.tabBarItem.image = UIImage(systemName: "house")
+        //goVC.tabBarItem.image = UIImage(systemName: "house")
         editVC.tabBarItem.image = UIImage(systemName: "slider.vertical.3")
         rallyVC.tabBarItem.image = UIImage(systemName: "steeringwheel")
         setupVC.tabBarItem.image = UIImage(systemName: "gear")
 
         let tabBarVC = UITabBarController()
-        tabBarVC.setViewControllers([goVC, editVC, rallyVC, setupVC], animated: false)
+        tabBarVC.setViewControllers([editVC, rallyVC, setupVC], animated: false)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.view.isOpaque = true
         tabBarVC.tabBar.backgroundColor = .theme
@@ -177,7 +176,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
 
     private func checkLoginStruct() {
 
-        let userData = Team(teamName: nameField.text ?? "", teamPass: passwordField.text ?? "")
+        let userData = Team(teamName: nameField.text!, teamPass: passwordField.text!)
 
         for element in teamsArrayStruct {
 

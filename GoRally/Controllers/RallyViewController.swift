@@ -5,7 +5,6 @@
 //  Created by Don Wolfton on 14.08.23.
 //
 
-import Foundation
 import UIKit
 import CoreLocation
 
@@ -19,16 +18,22 @@ class RallyViewController: UIViewController {
 
     var startStopwatch = Bool()
 
+    var startLatitude: CLLocationDegrees?
+    var startLongitude: CLLocationDegrees?
+    var startLocationPoint = CLLocationCoordinate2D()
+
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
+        manager.requestWhenInUseAuthorization()
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         manager.startUpdatingLocation()
         return manager
     }()
 
-    let directionView: UIImageView = {
-        let direct = UIImageView()
+    let directionView: UILabel = {
+        //let direct = UIImageView()
+        let direct = UILabel()
         direct.backgroundColor = .systemGray2
         return direct
     }()
@@ -126,28 +131,43 @@ class RallyViewController: UIViewController {
         directionView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(100)
-            $0.width.equalTo(150)
-            $0.height.equalTo(150)
+            $0.width.equalTo(200)
+            $0.height.equalTo(100)
         }
+
+        locationManager.requestWhenInUseAuthorization()
+
+        locationManager.startUpdatingLocation()
+
+        guard let startLatitude = locationManager.location?.coordinate.latitude
+        else {
+            return
+        }
+        guard let startLongitude = locationManager.location?.coordinate.longitude
+        else {
+            return
+        }
+        startLocationPoint = CLLocationCoordinate2D(latitude: startLatitude, longitude: startLongitude)
         
     }
 
     @objc private func startButtonTap() {
+
         tapOnStart += 1
 
         if tapOnStart == 1 {
-            speedField.text = "200"
+            speedField.text = ""
             distanceField.text = "\(String(describing: locationManager.location))"
             stopwatchStart()
 
-            directionView.image = UIImage(named: "turn_right")
+            //directionView.image = UIImage(named: "turn_right")
             startButton.backgroundColor = .systemRed
             startButton.setTitle("Stop", for: .normal)
         } else {
             startButton.backgroundColor = .blue
             startButton.setTitle("Start", for: .normal)
-            speedField.text = "0000000"
-            distanceField.text = "00000000"
+            speedField.text = "0"
+            distanceField.text = "0"
             tapOnStart = 0
             resetStopwatch()
             seconds = 0
@@ -157,6 +177,10 @@ class RallyViewController: UIViewController {
 
     private func stopwatchStart() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCount), userInfo: nil, repeats: true)
+//        while stopwatch != nil {
+//            showDistnaceAndSpeed()
+//        }
+
     }
 
     @objc private func startCount() {
@@ -164,6 +188,8 @@ class RallyViewController: UIViewController {
         let time = convertSecondsToTime(seconds: seconds)
         let timeString = showTimeInString(hours: time.0, minutes: time.1, seconds: time.2)
         timerField.text = timeString
+        showDistnaceAndSpeed()
+
     }
 
     private func convertSecondsToTime(seconds: Int) -> (Int, Int, Int) {
@@ -200,17 +226,29 @@ class RallyViewController: UIViewController {
 
     }
 
-    private func showSpeed() {
+    private func showDistnaceAndSpeed() {
 
-        var currentCoordinate = CLLocation(latitude: 1, longitude: 1)
+        guard var nextPointLatitude = locationManager.location?.coordinate.latitude
+        else {
+            return
+        }
 
-        var prevCoordinate =  CLLocation(latitude: 0, longitude: 0)
+        guard var nextPointLongitude = locationManager.location?.coordinate.longitude
+        else {
+            return
+        }
 
-        //let speed = CLLocationSpeed(exactly: locationManage<#T##BinaryInteger#>)
+        var nextLocationPoint = CLLocationCoordinate2D(latitude: nextPointLatitude, longitude: nextPointLongitude)
 
+        var distance = (nextLocationPoint.distance(to: startLocationPoint) / 1000)
 
+        distanceField.text = String(distance)
+        distanceField.textColor = .purple
 
+        var currentSpeed = Int(distance) / (seconds + 1) //фикс временный - крэшило из-за деления на 0
 
+        speedField.text = String(currentSpeed)
+        speedField.textColor = .orange
     }
 }
 
@@ -218,22 +256,19 @@ extension RallyViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = manager.location?.coordinate {
             print(coordinate.latitude)
+            directionView.text = "\(coordinate.latitude)\n\(coordinate.longitude)"
             print(coordinate.longitude)
         }
     }
 }
 
-extension CLLocation {
+extension CLLocationCoordinate2D {
 
-    /// Get distance between two points
-    ///
-    /// - Parameters:
-    ///   - from: first point
-    ///   - to: second point
-    /// - Returns: the distance in meters
-    class func distance(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> CLLocationDistance {
-        let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
-        let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
-        return from.distance(from: to)
+    func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
+        CLLocation(latitude: latitude, longitude: longitude)
+            .distance(from: CLLocation(latitude: to.latitude, longitude: to.longitude))
     }
+
 }
+
+
