@@ -35,6 +35,5 @@ final class RouteTableView : UIView {
         cellStack.addArrangedSubview(alertLabel)
 
         cell.addSubview(cellStack)
-
     }
 }

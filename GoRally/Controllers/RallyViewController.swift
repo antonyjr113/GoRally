@@ -18,9 +18,12 @@ class RallyViewController: UIViewController {
 
     var startStopwatch = Bool()
 
+    var currentData = TimeIntervalStruct()
+
     var startLatitude: CLLocationDegrees?
     var startLongitude: CLLocationDegrees?
     var startLocationPoint = CLLocationCoordinate2D()
+    var startLocationPointCL = CLLocation()
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -147,13 +150,15 @@ class RallyViewController: UIViewController {
         else {
             return
         }
-        startLocationPoint = CLLocationCoordinate2D(latitude: startLatitude, longitude: startLongitude)
-        
+        //startLocationPoint = CLLocationCoordinate2D(latitude: startLatitude, longitude: startLongitude)
+        startLocationPointCL = CLLocation(latitude: startLatitude, longitude: startLongitude)
     }
 
     @objc private func startButtonTap() {
 
         tapOnStart += 1
+
+        LoggingManager.shared.createLog()
 
         if tapOnStart == 1 {
             speedField.text = ""
@@ -177,10 +182,6 @@ class RallyViewController: UIViewController {
 
     private func stopwatchStart() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCount), userInfo: nil, repeats: true)
-//        while stopwatch != nil {
-//            showDistnaceAndSpeed()
-//        }
-
     }
 
     @objc private func startCount() {
@@ -188,8 +189,11 @@ class RallyViewController: UIViewController {
         let time = convertSecondsToTime(seconds: seconds)
         let timeString = showTimeInString(hours: time.0, minutes: time.1, seconds: time.2)
         timerField.text = timeString
-        showDistnaceAndSpeed()
-
+        if seconds >= 1 {
+            showDistnaceAndSpeed()
+        }
+        var dataForLogString = LoggingManager.shared.structConverterToString(data: currentData)
+        LoggingManager.shared.save(text: dataForLogString, toDirectory: LoggingManager.shared.folderName, withFileName: LoggingManager.shared.fileName)
     }
 
     private func convertSecondsToTime(seconds: Int) -> (Int, Int, Int) {
@@ -238,17 +242,23 @@ class RallyViewController: UIViewController {
             return
         }
 
-        var nextLocationPoint = CLLocationCoordinate2D(latitude: nextPointLatitude, longitude: nextPointLongitude)
+        //var nextLocationPoint = CLLocationCoordinate2D(latitude: nextPointLatitude, longitude: nextPointLongitude)
 
-        var distance = (nextLocationPoint.distance(to: startLocationPoint) / 1000)
+        var nextLocationPoint = CLLocation(latitude: nextPointLatitude, longitude: nextPointLongitude)
+
+        var distance = nextLocationPoint.distance(from: startLocationPointCL)
 
         distanceField.text = String(distance)
         distanceField.textColor = .purple
 
-        var currentSpeed = Int(distance) / (seconds + 1) //фикс временный - крэшило из-за деления на 0
+        currentData.distance = String(distance)
+
+        var currentSpeed = Int(distance) / (seconds) //фикс временный - крэшило из-за деления на 0
 
         speedField.text = String(currentSpeed)
         speedField.textColor = .orange
+
+        currentData.speed = String(currentSpeed)
     }
 }
 
@@ -262,13 +272,13 @@ extension RallyViewController: CLLocationManagerDelegate {
     }
 }
 
-extension CLLocationCoordinate2D {
-
-    func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
-        CLLocation(latitude: latitude, longitude: longitude)
-            .distance(from: CLLocation(latitude: to.latitude, longitude: to.longitude))
-    }
-
-}
+//extension CLLocationCoordinate2D {
+//
+//    func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
+//        CLLocation(latitude: latitude, longitude: longitude)
+//            .distance(from: CLLocation(latitude: to.latitude, longitude: to.longitude))
+//    }
+//
+//}
 
 
