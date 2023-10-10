@@ -188,7 +188,6 @@ class RallyViewController: UIViewController {
             speedField.text = "GO!"
             distanceField.text = "GO!"
             timerField.text = "GO!"
-            //distanceField.text = "\(String(describing: locationManager.location))"
             stopwatchStart()
             startButton.backgroundColor = .systemRed
             startButton.setTitle("Stop", for: .normal)
@@ -202,7 +201,6 @@ class RallyViewController: UIViewController {
             seconds = 0
         }
     }
-
 
     private func stopwatchStart() {
         stopwatch = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCount), userInfo: nil, repeats: true)
@@ -226,9 +224,9 @@ class RallyViewController: UIViewController {
     }
 
     private func resetStopwatch() {
-            stopwatch?.invalidate()
-            stopwatch = nil
-            timerField.text = showTimeInString(hours: 0, minutes: 0, seconds: 0)
+        stopwatch?.invalidate()
+        stopwatch = nil
+        timerField.text = showTimeInString(hours: 0, minutes: 0, seconds: 0)
     }
 
     private func showTimeInString(hours: Int, minutes: Int, seconds: Int) -> String {
@@ -296,13 +294,5 @@ extension RallyViewController: CLLocationManagerDelegate {
     }
 }
 
-//extension CLLocationCoordinate2D {
-//
-//    func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
-//        CLLocation(latitude: latitude, longitude: longitude)
-//            .distance(from: CLLocation(latitude: to.latitude, longitude: to.longitude))
-//    }
-//
-//}
 
 

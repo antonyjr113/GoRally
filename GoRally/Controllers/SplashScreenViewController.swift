@@ -23,13 +23,11 @@ class SplashScreenViewController: UIViewController {
             $0.width.equalTo(300)
             $0.height.equalTo(300)
         }
-
         animationView.play { finished in
             animationView.stop()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.dismiss(animated: false)
             })
-
         }
     }
 }

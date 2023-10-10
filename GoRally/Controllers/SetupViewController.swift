@@ -63,7 +63,6 @@ class SetupViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenT
         intervalField.snp.makeConstraints {
             $0.width.height.equalTo(50)
         }
-        //timeIntervalStack.layer.borderWidth = 1
 
         view.addSubview(logoutButton)
         logoutButton.snp.makeConstraints {
