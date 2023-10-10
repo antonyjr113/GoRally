@@ -34,16 +34,11 @@ class RallyViewController: UIViewController {
         return manager
     }()
 
-    let directionView: UILabel = {
-        //let direct = UIImageView()
-        let direct = UILabel()
-        direct.backgroundColor = .systemGray2
-        return direct
-    }()
-
     lazy var speedFieldTitle: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 35))
         label.textColor = .texts
+        label.text = "Speed - km/h"
+        label.font = .boldSystemFont(ofSize: 21)
         label.backgroundColor = .theme
         return label
     }()
@@ -51,23 +46,50 @@ class RallyViewController: UIViewController {
     lazy var speedField: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
-        label.layer.borderWidth = 1
+        label.text = "you"
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 72)
+        label.layer.borderWidth = 0
         label.backgroundColor = .white
+        return label
+    }()
+
+    lazy var distanceFieldTitle: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 35))
+        label.textColor = .texts
+        label.text = "Distance - km"
+        label.font = .boldSystemFont(ofSize: 21)
+        label.backgroundColor = .theme
         return label
     }()
 
     lazy var distanceField: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
-        label.layer.borderWidth = 1
+        label.text = "Ready?"
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 72)
+        label.layer.borderWidth = 0
         label.backgroundColor = .white
+        return label
+    }()
+
+    lazy var timerFieldTitle: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 35))
+        label.textColor = .texts
+        label.text = "Time"
+        label.font = .boldSystemFont(ofSize: 21)
+        label.backgroundColor = .theme
         return label
     }()
 
     lazy var timerField: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         label.textColor = .texts
-        label.layer.borderWidth = 1
+        label.text = "Are"
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 62)
+        label.layer.borderWidth = 0
         label.backgroundColor = .white
         return label
     }()
@@ -85,58 +107,61 @@ class RallyViewController: UIViewController {
         view.backgroundColor =  .theme
         title = "Rally"
 
-        view.addSubview(speedFieldTitle)
-        speedFieldTitle.snp.makeConstraints {
-            $0.top.equalTo(220)
-            $0.leading.equalTo(15)
-            $0.trailing.equalTo(-15)
-            $0.width.equalTo(200)
-        }
-
-        view.addSubview(speedField)
-        speedField.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(330)
-            $0.leading.equalTo(15)
-            $0.trailing.equalTo(-15)
-            $0.width.equalTo(200)
-            $0.height.equalTo(50)
-        }
-
-        view.addSubview(distanceField)
-        distanceField.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(430)
-            $0.leading.equalTo(15)
-            $0.trailing.equalTo(-15)
-            $0.width.equalTo(200)
-            $0.height.equalTo(50)
+        view.addSubview(timerFieldTitle)
+        timerFieldTitle.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(110)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(30)
         }
 
         view.addSubview(timerField)
         timerField.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(530)
-            $0.leading.equalTo(15)
-            $0.trailing.equalTo(-15)
-            $0.width.equalTo(200)
-            $0.height.equalTo(50)
+            $0.top.equalToSuperview().offset(140)
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
+            $0.height.equalTo(140)
+        }
+
+        view.addSubview(speedFieldTitle)
+        speedFieldTitle.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(310)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(30)
+        }
+
+        view.addSubview(speedField)
+        speedField.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(340)
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
+            $0.height.equalTo(140)
+        }
+
+        view.addSubview(distanceFieldTitle)
+        distanceFieldTitle.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(510)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(30)
+        }
+
+        view.addSubview(distanceField)
+        distanceField.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(540)
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
+            $0.height.equalTo(140)
         }
 
         view.addSubview(startButton)
         startButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-110)
+            $0.bottom.equalToSuperview().offset(-100)
             $0.width.equalTo(100)
             $0.height.equalTo(50)
         }
+
         startButton.layer.cornerRadius = 25
         startButton.addTarget(self, action: #selector(startButtonTap), for: .touchUpInside)
-
-        view.addSubview(directionView)
-        directionView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(100)
-            $0.width.equalTo(200)
-            $0.height.equalTo(100)
-        }
 
         locationManager.requestWhenInUseAuthorization()
 
@@ -150,7 +175,6 @@ class RallyViewController: UIViewController {
         else {
             return
         }
-        //startLocationPoint = CLLocationCoordinate2D(latitude: startLatitude, longitude: startLongitude)
         startLocationPointCL = CLLocation(latitude: startLatitude, longitude: startLongitude)
     }
 
@@ -161,11 +185,11 @@ class RallyViewController: UIViewController {
         LoggingManager.shared.createLog()
 
         if tapOnStart == 1 {
-            speedField.text = ""
-            distanceField.text = "\(String(describing: locationManager.location))"
+            speedField.text = "GO!"
+            distanceField.text = "GO!"
+            timerField.text = "GO!"
+            //distanceField.text = "\(String(describing: locationManager.location))"
             stopwatchStart()
-
-            //directionView.image = UIImage(named: "turn_right")
             startButton.backgroundColor = .systemRed
             startButton.setTitle("Stop", for: .normal)
         } else {
@@ -185,6 +209,7 @@ class RallyViewController: UIViewController {
     }
 
     @objc private func startCount() {
+
         seconds = seconds + 1
         let time = convertSecondsToTime(seconds: seconds)
         let timeString = showTimeInString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -210,7 +235,7 @@ class RallyViewController: UIViewController {
 
         var timeString = ""
 
-        timeString += String(format: "0%2d", hours)
+        timeString += String(format: "0%d", hours)
         timeString += " : "
 
         if minutes < 10 {
@@ -242,23 +267,23 @@ class RallyViewController: UIViewController {
             return
         }
 
-        //var nextLocationPoint = CLLocationCoordinate2D(latitude: nextPointLatitude, longitude: nextPointLongitude)
-
         var nextLocationPoint = CLLocation(latitude: nextPointLatitude, longitude: nextPointLongitude)
 
         var distance = nextLocationPoint.distance(from: startLocationPointCL)
 
-        distanceField.text = String(distance)
-        distanceField.textColor = .purple
+        if seconds >= 1 {
+            distanceField.text = String(format: "%.2f", distance)
+            distanceField.textColor = .purple
 
-        currentData.distance = String(distance)
+            currentData.distance = String(distance)
 
-        var currentSpeed = Int(distance) / (seconds) //фикс временный - крэшило из-за деления на 0
+            var currentSpeed = (Int(distance) / (seconds))
 
-        speedField.text = String(currentSpeed)
-        speedField.textColor = .orange
+            speedField.text = String(format: "%.0f", currentSpeed)
+            speedField.textColor = .orange
 
-        currentData.speed = String(currentSpeed)
+            currentData.speed = String(currentSpeed)
+        }
     }
 }
 
@@ -266,7 +291,6 @@ extension RallyViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = manager.location?.coordinate {
             print(coordinate.latitude)
-            directionView.text = "\(coordinate.latitude)\n\(coordinate.longitude)"
             print(coordinate.longitude)
         }
     }

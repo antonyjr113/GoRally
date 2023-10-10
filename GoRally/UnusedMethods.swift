@@ -71,3 +71,28 @@ import Foundation
 //            self.present(alert, animated: true)
 //        }
 //    }
+
+
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        let routeVC = UIViewController()
+//        routeVC.view.backgroundColor = .theme
+//        routeVC.modalPresentationStyle = .pageSheet
+//
+//        let routeVCTitle = UILabel()
+//        routeVCTitle.text = rallyArray[indexPath.row]
+//
+//        routeVC.view.addSubview(routeVCTitle)
+//        routeVCTitle.textAlignment = .center
+//        routeVCTitle.textColor = .texts
+//        routeVCTitle.font = .systemFont(ofSize: 30)
+//
+//        routeVCTitle.snp.makeConstraints {
+//            $0.top.equalTo(30)
+//            $0.width.equalToSuperview().offset(15)
+//            $0.height.equalTo(40)
+//        }
+//        present(routeVC, animated: true)
+//    }

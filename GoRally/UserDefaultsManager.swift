@@ -18,7 +18,20 @@ import UIKit
 //        }
 //    }
 //}
-var isFirstLaunch: Bool?
+var isFirstLaunch: Bool {
+    get {
+        if let value = UserDefaults.standard.object(forKey: "isFirstLaunch") as? Bool {
+            return value
+        } else {
+            UserDefaults.standard.set(false, forKey: "isFirstLaunch")
+            return true
+        }
+    }
+
+    set {
+        UserDefaults.standard.set(false, forKey: "isFirstLaunch")
+    }
+}
 
 extension UserDefaults {
 
@@ -28,6 +41,6 @@ extension UserDefaults {
     }
 
     func changeFirstLaunchValue() {
-        isFirstLaunch = false
+        //isFirstLaunch = false
     }
 }

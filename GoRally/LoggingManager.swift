@@ -53,7 +53,7 @@ final class LoggingManager {
 
         print("\nfolder is created\n")
 
-        var dataToAppend = "Test tring to write to file"
+        let dataToAppend = "Test tring to write to file"
         //structConverterToString(data: data)
 
 

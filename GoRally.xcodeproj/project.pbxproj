@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5219626E2ACCA0E0006DD5B5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219626D2ACCA0E0006DD5B5 /* Routes.swift */; };
+		521962702AD41929006DD5B5 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219626F2AD41929006DD5B5 /* SplashScreenViewController.swift */; };
+		521962732AD41E39006DD5B5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 521962722AD41E39006DD5B5 /* Lottie */; };
+		521962752AD55562006DD5B5 /* animationSplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 521962742AD55562006DD5B5 /* animationSplash.json */; };
 		524C8ABF2AA9EF3000A737B9 /* RouteShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */; };
 		524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6C2A8A5560007D2808 /* AppDelegate.swift */; };
 		524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */; };
@@ -31,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5219626D2ACCA0E0006DD5B5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		5219626F2AD41929006DD5B5 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		521962742AD55562006DD5B5 /* animationSplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animationSplash.json; sourceTree = "<group>"; };
 		524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteShowViewController.swift; sourceTree = "<group>"; };
 		524EDA692A8A5560007D2808 /* GoRally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoRally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524EDA6C2A8A5560007D2808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,12 +68,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CC57C22A8FA2E9001A5597 /* SnapKit in Frameworks */,
+				521962732AD41E39006DD5B5 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5219626C2ACCA0CA006DD5B5 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				5219626D2ACCA0E0006DD5B5 /* Routes.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
 		524EDA602A8A5560007D2808 = {
 			isa = PBXGroup;
 			children = (
@@ -86,19 +102,21 @@
 		524EDA6B2A8A5560007D2808 /* GoRally */ = {
 			isa = PBXGroup;
 			children = (
+				521962742AD55562006DD5B5 /* animationSplash.json */,
 				524EDA6C2A8A5560007D2808 /* AppDelegate.swift */,
 				524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */,
 				52B754F72A8A955C002FA98D /* AvoidingKeyboard.swift */,
 				52B754F92A8A95D2002FA98D /* HideKeyboard.swift */,
+				5219626C2ACCA0CA006DD5B5 /* Routes */,
 				52EE19642A8BC93E00008AFC /* Team Data */,
 				52EE19612A8B9FBD00008AFC /* Extensions */,
 				52B754F42A8A5D02002FA98D /* Controllers */,
+				524F19662AAC693A00A82D1B /* Managers */,
 				524EDA722A8A5560007D2808 /* Main.storyboard */,
 				524EDA752A8A5563007D2808 /* Assets.xcassets */,
 				524EDA772A8A5563007D2808 /* LaunchScreen.storyboard */,
 				524EDA7A2A8A5563007D2808 /* Info.plist */,
 				5299576E2AC9C84F000E0CEA /* UnusedMethods.swift */,
-				524F19662AAC693A00A82D1B /* Managers */,
 				52FDC67C2AA7AEE4003F697E /* Model */,
 			);
 			path = GoRally;
@@ -122,6 +140,7 @@
 				52B754F02A8A5CC1002FA98D /* RallyViewController.swift */,
 				52B754F22A8A5CD1002FA98D /* SetupViewController.swift */,
 				524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */,
+				5219626F2AD41929006DD5B5 /* SplashScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +188,7 @@
 			name = GoRally;
 			packageProductDependencies = (
 				52CC57C12A8FA2E9001A5597 /* SnapKit */,
+				521962722AD41E39006DD5B5 /* Lottie */,
 			);
 			productName = GoRally;
 			productReference = 524EDA692A8A5560007D2808 /* GoRally.app */;
@@ -200,6 +220,7 @@
 			mainGroup = 524EDA602A8A5560007D2808;
 			packageReferences = (
 				52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				521962712AD41E38006DD5B5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 524EDA6A2A8A5560007D2808 /* Products */;
 			projectDirPath = "";
@@ -218,6 +239,7 @@
 				524EDA792A8A5563007D2808 /* LaunchScreen.storyboard in Resources */,
 				524EDA762A8A5563007D2808 /* Assets.xcassets in Resources */,
 				524EDA742A8A5560007D2808 /* Main.storyboard in Resources */,
+				521962752AD55562006DD5B5 /* animationSplash.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +261,10 @@
 				524F196F2AAE34EA00A82D1B /* UserDefaultsManager.swift in Sources */,
 				52EE19632A8B9FD500008AFC /* ColorSet.swift in Sources */,
 				5299576F2AC9C84F000E0CEA /* UnusedMethods.swift in Sources */,
+				521962702AD41929006DD5B5 /* SplashScreenViewController.swift in Sources */,
 				52FDC6802AA899E2003F697E /* RouteTableView.swift in Sources */,
 				52EE19662A8BC95100008AFC /* Teams.swift in Sources */,
+				5219626E2ACCA0E0006DD5B5 /* Routes.swift in Sources */,
 				52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */,
 				52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */,
 				524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */,
@@ -472,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		521962712AD41E38006DD5B5 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -483,6 +515,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		521962722AD41E39006DD5B5 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 521962712AD41E38006DD5B5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		52CC57C12A8FA2E9001A5597 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */;

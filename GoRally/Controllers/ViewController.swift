@@ -12,7 +12,6 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
 
     let userDefaults = UserDefaults.standard
 
-
     let helloTitle: UILabel = {
         let label = UILabel()
         label.text = "Let's race!"
@@ -40,7 +39,7 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         return name
     }()
 
-    /// password team filed
+
     let passwordField: UITextField = {
         let pass = UITextField()
         pass.backgroundColor = .white
@@ -52,14 +51,17 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         return pass
     }()
 
+    override func viewDidAppear(_ animated: Bool) {
+        if isFirstLaunch {
+            showSplash()
+            isFirstLaunch = false
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if isFirstLaunch == true {
-
             hideKeyboardWhenTappedAround()
-
             view.backgroundColor = .theme
 
             view.addSubview(helloTitle)
@@ -99,29 +101,23 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
             }
             loginButton.layer.cornerRadius = 25
             loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
-        } else {
-            createTabBar()
         }
-    }
+    
 
     @objc func loginButtonTap() {
-        checkLoginStruct() 
+        checkLoginStruct()
     }
 
     private func createTabBar() {
 
-        //let goVC = UINavigationController(rootViewController: GoViewController())
         let editVC = UINavigationController(rootViewController: RoutesViewController())
         let rallyVC = UINavigationController(rootViewController: RallyViewController())
         let setupVC = UINavigationController(rootViewController: SetupViewController())
 
-        //goVC.title = "Go"
         editVC.title = "Routes"
         rallyVC.title = "Rally"
         setupVC.title = "Setup"
 
-
-        //goVC.tabBarItem.image = UIImage(systemName: "house")
         editVC.tabBarItem.image = UIImage(systemName: "slider.vertical.3")
         rallyVC.tabBarItem.image = UIImage(systemName: "steeringwheel")
         setupVC.tabBarItem.image = UIImage(systemName: "gear")
@@ -166,39 +162,41 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
 
     private func checkLoginStruct() {
 
-            let userData = Team(teamName: nameField.text!, teamPass: passwordField.text!)
+        let userData = Team(teamName: nameField.text!, teamPass: passwordField.text!)
 
-            if teamsData.keys.contains(nameField.text!) && teamsData.values.contains(passwordField.text!) {
-                createTabBar()
-                nameField.text = nil
-                passwordField.text = nil
-                userDefaults.set(userData.teamName, forKey: "teamNameEntered")
-                userDefaults.set(userData.teamPass, forKey: "teamPassEntered")
+        if teamsData.keys.contains(nameField.text!) && teamsData.values.contains(passwordField.text!) {
+            createTabBar()
+            nameField.text = nil
+            passwordField.text = nil
+            userDefaults.set(userData.teamName, forKey: "teamNameEntered")
+            userDefaults.set(userData.teamPass, forKey: "teamPassEntered")
 
-                userDefaults.changeFirstLaunchValue()
+            userDefaults.changeFirstLaunchValue()
 
-                print(isFirstLaunch)
+            print(isFirstLaunch)
 
-                //userDefaults.register(defaults: [DetectLaunch.isFirst: true])
+        } else {
 
-                //userDefaults.applicationWillTerminate()
+            let alert = UIAlertController(title: "Error", message: "Incorrect data! Try to rewrite your team name and password :)", preferredStyle: .alert)
 
-                //                print(userDefaults.object(forKey: "teamNameEntered"))
-                //
-                //                print(userDefaults.object(forKey: "teamPassEntered"))
+            alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
 
-            } else {
-
-                let alert = UIAlertController(title: "Error", message: "Incorrect data! Try to rewrite your team name and password :)", preferredStyle: .alert)
-
-                alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
-
-                self.present(alert, animated: true)
-            }
+            self.present(alert, animated: true)
         }
     }
-//}
-//}
+
+    private func showSplash() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard
+            let splashVC = storyboard.instantiateViewController(withIdentifier: "SplashScreenViewController") as? SplashScreenViewController
+        else {
+            return
+        }
+        splashVC.modalPresentationStyle = .overFullScreen
+        self.present(splashVC, animated: false)
+    }
+}
+
 
 
 

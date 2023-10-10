@@ -18,8 +18,6 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return table
     }()
 
-    let rallyArray = ["Rally 1", "Rally 2", "Rally 3", "Rally 4", "Rally 5",  "Rally 6",  "Rally 7",  "Rally 8",  "Rally 9",  "Rally 10", "Rally 11", "Rally 12", "Rally 13"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,10 +28,7 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         routesTable.delegate = self
         routesTable.dataSource = self
-
         routesTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-
         routesTable.backgroundColor = .theme
 
     }
@@ -52,43 +47,22 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = rallyArray[indexPath.row]
-        cell.textLabel?.font = .systemFont(ofSize: 26)
+        let currentRoute = routesStruct[indexPath.row]
+        cell.textLabel?.text = currentRoute.route
+        cell.textLabel?.font = .systemFont(ofSize: 28, weight: .semibold)
+        cell.textLabel?.textColor = .texts
         cell.backgroundColor = .theme
         return cell
     }
 
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //
-    //        tableView.deselectRow(at: indexPath, animated: true)
-    //
-    //        let routeVC = UIViewController()
-    //        routeVC.view.backgroundColor = .theme
-    //        routeVC.modalPresentationStyle = .pageSheet
-    //
-    //        let routeVCTitle = UILabel()
-    //        routeVCTitle.text = rallyArray[indexPath.row]
-    //
-    //        routeVC.view.addSubview(routeVCTitle)
-    //        routeVCTitle.textAlignment = .center
-    //        routeVCTitle.textColor = .texts
-    //        routeVCTitle.font = .systemFont(ofSize: 30)
-    //
-    //        routeVCTitle.snp.makeConstraints {
-    //            $0.top.equalTo(30)
-    //            $0.width.equalToSuperview().offset(15)
-    //            $0.height.equalTo(40)
-    //        }
-    //        present(routeVC, animated: true)
-    //    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-        let routeVC = RouteShowViewController()
+        let element = routesStruct[indexPath.row]
+        let currentRouteLink = element.link
+        let routeVC = RouteShowViewController(routeLink: currentRouteLink ?? "")
         routeVC.view.backgroundColor = .theme
         routeVC.modalPresentationStyle = .pageSheet
-
         present(routeVC, animated: true)
 
     }
