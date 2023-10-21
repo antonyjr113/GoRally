@@ -17,6 +17,15 @@
         "branch" : "develop",
         "revision" : "58320fe80522414bf3a7e24c88123581dc586752"
       }
+    },
+    {
+      "identity" : "swiftybeaver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+      "state" : {
+        "revision" : "1080914828ef1c9ca9cd2bad50667b3d847dabff",
+        "version" : "2.0.0"
+      }
     }
   ],
   "version" : 2

@@ -30,6 +30,7 @@ class RoutesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         routesTable.dataSource = self
         routesTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         routesTable.backgroundColor = .theme
+       
     }
     
     override func viewDidLayoutSubviews() {

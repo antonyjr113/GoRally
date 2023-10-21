@@ -30,7 +30,7 @@ class RallyViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        manager.startUpdatingLocation()
+        //manager.startUpdatingLocation()
         return manager
     }()
 
@@ -165,7 +165,7 @@ class RallyViewController: UIViewController {
 
         locationManager.requestWhenInUseAuthorization()
 
-        locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingLocation()
 
         guard let startLatitude = locationManager.location?.coordinate.latitude
         else {
@@ -175,6 +175,8 @@ class RallyViewController: UIViewController {
         else {
             return
         }
+        print("start point lat", startLatitude)
+        print("start point long", startLongitude)
         startLocationPointCL = CLLocation(latitude: startLatitude, longitude: startLongitude)
     }
 
@@ -215,8 +217,8 @@ class RallyViewController: UIViewController {
         if seconds >= 1 {
             showDistnaceAndSpeed()
         }
-        var dataForLogString = LoggingManager.shared.structConverterToString(data: currentData)
-        LoggingManager.shared.save(text: dataForLogString, toDirectory: LoggingManager.shared.folderName, withFileName: LoggingManager.shared.fileName)
+//        var dataForLogString = LoggingManager.shared.structConverterToString(data: currentData)
+//        LoggingManager.shared.save(text: dataForLogString, toDirectory: LoggingManager.shared.mainDirectoryName, withFileName: LoggingManager.shared.fileName)
     }
 
     private func convertSecondsToTime(seconds: Int) -> (Int, Int, Int) {
@@ -255,6 +257,10 @@ class RallyViewController: UIViewController {
 
     private func showDistnaceAndSpeed() {
 
+        locationManager.startUpdatingLocation()
+
+        print("startPoint :", startLocationPointCL)
+
         guard var nextPointLatitude = locationManager.location?.coordinate.latitude
         else {
             return
@@ -267,20 +273,38 @@ class RallyViewController: UIViewController {
 
         var nextLocationPoint = CLLocation(latitude: nextPointLatitude, longitude: nextPointLongitude)
 
+        print("next point :", nextLocationPoint)
+
         var distance = nextLocationPoint.distance(from: startLocationPointCL)
 
+        print ("\nCL Speed", nextLocationPoint.speed)
+
         if seconds >= 1 {
-            distanceField.text = String(format: "%.2f", distance)
+            var convertedDistanceToKM = ((distance / 1000.0) * 1.21)
+            distanceField.text = String(format: "%.2f", convertedDistanceToKM)
             distanceField.textColor = .purple
 
             currentData.distance = String(distance)
 
-            var currentSpeed = (Int(distance) / (seconds))
+            print("\ndistance ", distance)
+
+            var hours: Double = Double(seconds / 3600)
+
+            var currentSpeed = 0.0
+
+            print("hours", hours)
+
+            if hours > 0 {
+                currentSpeed = ((Double(convertedDistanceToKM) / hours))
+            } else {
+                currentSpeed = 0
+            }
 
             speedField.text = String(format: "%.0f", currentSpeed)
             speedField.textColor = .orange
 
             currentData.speed = String(currentSpeed)
+            print("speed ", currentSpeed)
         }
     }
 }
@@ -288,8 +312,8 @@ class RallyViewController: UIViewController {
 extension RallyViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = manager.location?.coordinate {
-            print(coordinate.latitude)
-            print(coordinate.longitude)
+//            print(coordinate.latitude)
+//            print(coordinate.longitude)
         }
     }
 }

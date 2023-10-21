@@ -12,7 +12,7 @@ var isFirstLaunch: Bool {
         if let value = UserDefaults.standard.object(forKey: "isFirstLaunch") as? Bool {
             return value
         } else {
-            UserDefaults.standard.set(false, forKey: "isFirstLaunch")
+            //UserDefaults.standard.set(false, forKey: "isFirstLaunch")
             return true
         }
     }

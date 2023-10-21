@@ -11,6 +11,7 @@
 		521962702AD41929006DD5B5 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219626F2AD41929006DD5B5 /* SplashScreenViewController.swift */; };
 		521962732AD41E39006DD5B5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 521962722AD41E39006DD5B5 /* Lottie */; };
 		521962752AD55562006DD5B5 /* animationSplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 521962742AD55562006DD5B5 /* animationSplash.json */; };
+		523517FB2AE03252005D1E5A /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 523517FA2AE03252005D1E5A /* SwiftyBeaver */; };
 		524C8ABF2AA9EF3000A737B9 /* RouteShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */; };
 		524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6C2A8A5560007D2808 /* AppDelegate.swift */; };
 		524EDA6F2A8A5560007D2808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524EDA6E2A8A5560007D2808 /* SceneDelegate.swift */; };
@@ -69,6 +70,7 @@
 			files = (
 				52CC57C22A8FA2E9001A5597 /* SnapKit in Frameworks */,
 				521962732AD41E39006DD5B5 /* Lottie in Frameworks */,
+				523517FB2AE03252005D1E5A /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +191,7 @@
 			packageProductDependencies = (
 				52CC57C12A8FA2E9001A5597 /* SnapKit */,
 				521962722AD41E39006DD5B5 /* Lottie */,
+				523517FA2AE03252005D1E5A /* SwiftyBeaver */,
 			);
 			productName = GoRally;
 			productReference = 524EDA692A8A5560007D2808 /* GoRally.app */;
@@ -221,6 +224,7 @@
 			packageReferences = (
 				52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				521962712AD41E38006DD5B5 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				523517F92AE03252005D1E5A /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = 524EDA6A2A8A5560007D2808 /* Products */;
 			projectDirPath = "";
@@ -504,6 +508,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		523517F92AE03252005D1E5A /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		52CC57C02A8FA2E9001A5597 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -519,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 521962712AD41E38006DD5B5 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		523517FA2AE03252005D1E5A /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 523517F92AE03252005D1E5A /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 		52CC57C12A8FA2E9001A5597 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
