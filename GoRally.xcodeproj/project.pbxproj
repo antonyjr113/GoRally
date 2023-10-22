@@ -22,6 +22,7 @@
 		524F196D2AAE2A2C00A82D1B /* LoggingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F196C2AAE2A2C00A82D1B /* LoggingManager.swift */; };
 		524F196F2AAE34EA00A82D1B /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F196E2AAE34EA00A82D1B /* UserDefaultsManager.swift */; };
 		5299576F2AC9C84F000E0CEA /* UnusedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299576E2AC9C84F000E0CEA /* UnusedMethods.swift */; };
+		529C03832AE572C200AC7540 /* ShowLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C03822AE572C200AC7540 /* ShowLogViewController.swift */; };
 		52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */; };
 		52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */; };
 		52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F02A8A5CC1002FA98D /* RallyViewController.swift */; };
@@ -51,6 +52,7 @@
 		524F196C2AAE2A2C00A82D1B /* LoggingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingManager.swift; sourceTree = "<group>"; };
 		524F196E2AAE34EA00A82D1B /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		5299576E2AC9C84F000E0CEA /* UnusedMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedMethods.swift; sourceTree = "<group>"; };
+		529C03822AE572C200AC7540 /* ShowLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLogViewController.swift; sourceTree = "<group>"; };
 		52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		52B754F02A8A5CC1002FA98D /* RallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				52B754F22A8A5CD1002FA98D /* SetupViewController.swift */,
 				524C8ABE2AA9EF3000A737B9 /* RouteShowViewController.swift */,
 				5219626F2AD41929006DD5B5 /* SplashScreenViewController.swift */,
+				529C03822AE572C200AC7540 /* ShowLogViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */,
 				52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */,
 				524EDA712A8A5560007D2808 /* ViewController.swift in Sources */,
+				529C03832AE572C200AC7540 /* ShowLogViewController.swift in Sources */,
 				52FDC67E2AA7AF00003F697E /* RouteModel.swift in Sources */,
 				524EDA6D2A8A5560007D2808 /* AppDelegate.swift in Sources */,
 				524F196D2AAE2A2C00A82D1B /* LoggingManager.swift in Sources */,

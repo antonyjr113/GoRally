@@ -37,6 +37,8 @@ final class LoggingManager: TextOutputStream {
     var fileName = ""
     
     static let shared = LoggingManager()
+
+    var logStr = ""
     
     func createLog() {
         
@@ -46,21 +48,21 @@ final class LoggingManager: TextOutputStream {
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("\(mainDirectoryName)")
 
-        print("success - folder in document directiry created")
+        //print("success - folder in document directiry created")
         print(folder.absoluteString)
 
         try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
 
         var mainFolderURL = folder.appendingPathComponent(folderForLogsName)
         
-        print("\ndirectory is created")
-        print(mainFolderURL.absoluteString)
+        //print("\ndirectory is created")
+        //print(mainFolderURL.absoluteString)
 
 
         let filePath = folder.absoluteString + "log-\(dateForLog).txt"
         FileManager.default.createFile(atPath: mainFolderURL.absoluteString, contents: nil)
-        print("file is created ")
-        print(filePath)
+        //print("file is created ")
+        //print(filePath)
 
         let dataToAppend = "Test tring to write to file\n"
 

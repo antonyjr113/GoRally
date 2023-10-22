@@ -17,6 +17,13 @@ class SetupViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenT
         return button
     }()
 
+    let showLogButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemIndigo
+        button.setTitle("Show Log", for: .normal)
+        return button
+    }()
+
     let timeIntervalStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -72,8 +79,24 @@ class SetupViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenT
         }
         logoutButton.layer.cornerRadius = 25
         logoutButton.addTarget(self, action: #selector(logoutButtonTap), for: .touchUpInside)
+
+        view.addSubview(showLogButton)
+        showLogButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(-100)
+            $0.width.equalTo(100)
+            $0.height.equalTo(50)
+        }
+        showLogButton.layer.cornerRadius = 25
+        showLogButton.addTarget(self, action: #selector(showLogButtonTap), for: .touchUpInside)
     }
 
+
+    @objc func showLogButtonTap() {
+        let logVC = ShowLogViewController()
+        logVC.modalPresentationStyle = .pageSheet
+        present(logVC, animated: true)
+    }
     @objc func logoutButtonTap() {
 
         let alert = UIAlertController(title: "Log out", message: "Do you want to log out?", preferredStyle: .actionSheet)

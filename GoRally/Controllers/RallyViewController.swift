@@ -16,9 +16,13 @@ class RallyViewController: UIViewController {
 
     var seconds = 0
 
+    var secondsForSpeed = 0
+
     var startStopwatch = Bool()
 
     var currentData = TimeIntervalStruct()
+
+    var logString = ""
 
     var startLatitude: CLLocationDegrees?
     var startLongitude: CLLocationDegrees?
@@ -165,8 +169,6 @@ class RallyViewController: UIViewController {
 
         locationManager.requestWhenInUseAuthorization()
 
-        //locationManager.startUpdatingLocation()
-
         guard let startLatitude = locationManager.location?.coordinate.latitude
         else {
             return
@@ -201,6 +203,8 @@ class RallyViewController: UIViewController {
             tapOnStart = 0
             resetStopwatch()
             seconds = 0
+            print(logString)
+            LoggingManager.shared.logStr = logString
         }
     }
 
@@ -211,14 +215,14 @@ class RallyViewController: UIViewController {
     @objc private func startCount() {
 
         seconds = seconds + 1
+        secondsForSpeed = seconds + 1
+        print("current second = ", secondsForSpeed)
         let time = convertSecondsToTime(seconds: seconds)
         let timeString = showTimeInString(hours: time.0, minutes: time.1, seconds: time.2)
         timerField.text = timeString
         if seconds >= 1 {
             showDistnaceAndSpeed()
         }
-//        var dataForLogString = LoggingManager.shared.structConverterToString(data: currentData)
-//        LoggingManager.shared.save(text: dataForLogString, toDirectory: LoggingManager.shared.mainDirectoryName, withFileName: LoggingManager.shared.fileName)
     }
 
     private func convertSecondsToTime(seconds: Int) -> (Int, Int, Int) {
@@ -273,11 +277,11 @@ class RallyViewController: UIViewController {
 
         var nextLocationPoint = CLLocation(latitude: nextPointLatitude, longitude: nextPointLongitude)
 
-        print("next point :", nextLocationPoint)
+        print("next point : ", nextLocationPoint)
 
         var distance = nextLocationPoint.distance(from: startLocationPointCL)
 
-        print ("\nCL Speed", nextLocationPoint.speed)
+        print ("\nCL Speed = ", nextLocationPoint.speed)
 
         if seconds >= 1 {
             var convertedDistanceToKM = ((distance / 1000.0) * 1.21)
@@ -286,25 +290,30 @@ class RallyViewController: UIViewController {
 
             currentData.distance = String(distance)
 
-            print("\ndistance ", distance)
+            print("\ndistance = ", distance)
 
             var hours: Double = Double(seconds / 3600)
 
             var currentSpeed = 0.0
+            print("seconds = ", seconds)
+            print("hours = ", hours)
 
-            print("hours", hours)
-
-            if hours > 0 {
-                currentSpeed = ((Double(convertedDistanceToKM) / hours))
+            if seconds > 0 {
+                print(true)
+                currentSpeed = ((Double(distance * 1.21) / Double(seconds)))
+                print("speed m/s = ", currentSpeed)
             } else {
+                print(false)
                 currentSpeed = 0
             }
-
-            speedField.text = String(format: "%.0f", currentSpeed)
+            speedField.text = String(format: "%.1f", (currentSpeed / 0.278))
+            //speedField.text = String(format: "%.0f", (currentSpeed * 1000 / 3600))
+            print("speed km/h = ", (currentSpeed / 0.278))
             speedField.textColor = .orange
 
             currentData.speed = String(currentSpeed)
-            print("speed ", currentSpeed)
+
+            logString.append("\n\ntime = \(timerField.text!)\ncoordinate lat = \(nextPointLatitude)\ncoordinate long = \(nextPointLongitude)\ndistance = \(convertedDistanceToKM)\nspeed = \(currentSpeed)")
         }
     }
 }
