@@ -52,23 +52,15 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
     }()
     
     override func viewDidAppear(_ animated: Bool) {
-        showSplash()
-//        if isFirstLaunch {
-//            showSplash()
-//        }
-
+            showSplash()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         view.backgroundColor = .theme
-        //isFirstLaunch = false
-//        if isFirstLaunch {
-//            createLoginForm()
-//        }
-        isFirstLaunch = false
         createLoginForm()
+        isFirstLaunch = false
     }
 
     
@@ -159,18 +151,6 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         self.present(splashVC, animated: false)
 
     }
-
-//    private func showLoginForm() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard
-//            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-//        else {
-//            return
-//        }
-//        loginVC.modalPresentationStyle = .overFullScreen
-//        self.present(loginVC, animated: false)
-//
-//    }
 
     private func createLoginForm() {
 

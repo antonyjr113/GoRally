@@ -24,6 +24,10 @@ class RallyViewController: UIViewController {
 
     var logString = ""
 
+    let converterToKMH = 0.278
+
+    let alignConstant = 1.21
+
     var startLatitude: CLLocationDegrees?
     var startLongitude: CLLocationDegrees?
     var startLocationPoint = CLLocationCoordinate2D()
@@ -284,7 +288,7 @@ class RallyViewController: UIViewController {
         print ("\nCL Speed = ", nextLocationPoint.speed)
 
         if seconds >= 1 {
-            var convertedDistanceToKM = ((distance / 1000.0) * 1.21)
+            var convertedDistanceToKM = ((distance / 1000.0) * alignConstant)
             distanceField.text = String(format: "%.2f", convertedDistanceToKM)
             distanceField.textColor = .purple
 
@@ -300,20 +304,18 @@ class RallyViewController: UIViewController {
 
             if seconds > 0 {
                 print(true)
-                currentSpeed = ((Double(distance * 1.21) / Double(seconds)))
+                currentSpeed = ((Double(distance * alignConstant) / Double(seconds)))
                 print("speed m/s = ", currentSpeed)
             } else {
                 print(false)
                 currentSpeed = 0
             }
-            speedField.text = String(format: "%.1f", (currentSpeed / 0.278))
-            //speedField.text = String(format: "%.0f", (currentSpeed * 1000 / 3600))
-            print("speed km/h = ", (currentSpeed / 0.278))
+            speedField.text = String(format: "%.0f", (currentSpeed / converterToKMH) * 1.25)
+            print("speed km/h = ", (currentSpeed / converterToKMH))
             speedField.textColor = .orange
 
-            currentData.speed = String(currentSpeed)
-
             logString.append("\n\ntime = \(timerField.text!)\ncoordinate lat = \(nextPointLatitude)\ncoordinate long = \(nextPointLongitude)\ndistance = \(convertedDistanceToKM)\nspeed = \(currentSpeed)")
+
         }
     }
 }

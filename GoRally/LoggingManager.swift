@@ -72,20 +72,6 @@ final class LoggingManager: TextOutputStream {
         } catch {
             print(error)
         }
-
-//        let pathToAppendData = folder.absoluteString
-//        let folderForLogsString = mainFolderURL.absoluteString
-//        let toFolder = folder.absoluteString
-//
-//        print("where to save = ", pathToAppendData)
-//
-//        fileName = "\(logPrefix)\(dateForLog).log"
-//
-//        print("\nfolder is created\n")
-//
-//
-//        self.save(text: dataToAppend, toDirectory: toFolder, withFileName: pathToAppendData)
-//        print("success")
     }
     
     private func append(toPath path: String,

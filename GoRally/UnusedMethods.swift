@@ -96,3 +96,18 @@ import Foundation
 //        }
 //        present(routeVC, animated: true)
 //    }
+
+
+//        let pathToAppendData = folder.absoluteString
+//        let folderForLogsString = mainFolderURL.absoluteString
+//        let toFolder = folder.absoluteString
+//
+//        print("where to save = ", pathToAppendData)
+//
+//        fileName = "\(logPrefix)\(dateForLog).log"
+//
+//        print("\nfolder is created\n")
+//
+//
+//        self.save(text: dataToAppend, toDirectory: toFolder, withFileName: pathToAppendData)
+//        print("success")
