@@ -111,3 +111,51 @@ import Foundation
 //
 //        self.save(text: dataToAppend, toDirectory: toFolder, withFileName: pathToAppendData)
 //        print("success")
+
+
+
+
+
+
+
+
+//private func createLoginForm() {
+//
+//    view.addSubview(helloTitle)
+//    helloTitle.snp.makeConstraints {
+//        $0.centerX.equalToSuperview()
+//        $0.top.equalToSuperview().offset(150)
+//    }
+//
+//    view.addSubview(nameField)
+//    nameField.font = .systemFont(ofSize: 30)
+//    nameField.textColor = .texts
+//    nameField.layer.borderWidth = 1
+//    nameField.layer.cornerRadius = 3
+//    nameField.snp.makeConstraints {
+//        $0.leading.equalToSuperview().offset(15)
+//        $0.trailing.equalToSuperview().offset(-15)
+//        $0.top.equalToSuperview().offset(300)
+//    }
+//
+//    view.addSubview(passwordField)
+//    passwordField.font = .systemFont(ofSize: 30)
+//    passwordField.textColor = .texts
+//    passwordField.layer.borderWidth = 1
+//    passwordField.layer.cornerRadius = 3
+//    passwordField.snp.makeConstraints {
+//        $0.leading.equalToSuperview().offset(15)
+//        $0.trailing.equalToSuperview().offset(-15)
+//        $0.top.equalToSuperview().offset(400)
+//    }
+//
+//    view.addSubview(loginButton)
+//    loginButton.snp.makeConstraints {
+//        $0.centerX.equalToSuperview()
+//        $0.bottom.equalToSuperview().offset(-50)
+//        $0.width.equalTo(100)
+//        $0.height.equalTo(50)
+//    }
+//    loginButton.layer.cornerRadius = 25
+//    loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
+//}

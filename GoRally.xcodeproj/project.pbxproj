@@ -24,6 +24,8 @@
 		5299576F2AC9C84F000E0CEA /* UnusedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299576E2AC9C84F000E0CEA /* UnusedMethods.swift */; };
 		529C03832AE572C200AC7540 /* ShowLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C03822AE572C200AC7540 /* ShowLogViewController.swift */; };
 		52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */; };
+		52AD0ED72AEADAEA00171620 /* GoRallyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD0ED62AEADAEA00171620 /* GoRallyTests.swift */; };
+		52AD0EE02AED0D5D00171620 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD0EDF2AED0D5D00171620 /* LoginViewController.swift */; };
 		52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */; };
 		52B754F12A8A5CC1002FA98D /* RallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F02A8A5CC1002FA98D /* RallyViewController.swift */; };
 		52B754F32A8A5CD1002FA98D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B754F22A8A5CD1002FA98D /* SetupViewController.swift */; };
@@ -35,6 +37,16 @@
 		52FDC67E2AA7AF00003F697E /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FDC67D2AA7AF00003F697E /* RouteModel.swift */; };
 		52FDC6802AA899E2003F697E /* RouteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FDC67F2AA899E2003F697E /* RouteTableView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52AD0ED82AEADAEA00171620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524EDA612A8A5560007D2808 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 524EDA682A8A5560007D2808;
+			remoteInfo = GoRally;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5219626D2ACCA0E0006DD5B5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -54,6 +66,9 @@
 		5299576E2AC9C84F000E0CEA /* UnusedMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnusedMethods.swift; sourceTree = "<group>"; };
 		529C03822AE572C200AC7540 /* ShowLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLogViewController.swift; sourceTree = "<group>"; };
 		52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
+		52AD0ED42AEADAE900171620 /* GoRallyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoRallyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52AD0ED62AEADAEA00171620 /* GoRallyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoRallyTests.swift; sourceTree = "<group>"; };
+		52AD0EDF2AED0D5D00171620 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		52B754F02A8A5CC1002FA98D /* RallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyViewController.swift; sourceTree = "<group>"; };
 		52B754F22A8A5CD1002FA98D /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +91,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52AD0ED12AEADAE900171620 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -91,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				524EDA6B2A8A5560007D2808 /* GoRally */,
+				52AD0ED52AEADAEA00171620 /* GoRallyTests */,
 				524EDA6A2A8A5560007D2808 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				524EDA692A8A5560007D2808 /* GoRally.app */,
+				52AD0ED42AEADAE900171620 /* GoRallyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,10 +159,19 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		52AD0ED52AEADAEA00171620 /* GoRallyTests */ = {
+			isa = PBXGroup;
+			children = (
+				52AD0ED62AEADAEA00171620 /* GoRallyTests.swift */,
+			);
+			path = GoRallyTests;
+			sourceTree = "<group>";
+		};
 		52B754F42A8A5D02002FA98D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				524EDA702A8A5560007D2808 /* ViewController.swift */,
+				52AD0EDF2AED0D5D00171620 /* LoginViewController.swift */,
 				52B754EE2A8A5CA7002FA98D /* RoutesViewController.swift */,
 				52A843362A94ED4700D09A8D /* RouteTableViewCell.swift */,
 				52B754F02A8A5CC1002FA98D /* RallyViewController.swift */,
@@ -200,6 +233,24 @@
 			productReference = 524EDA692A8A5560007D2808 /* GoRally.app */;
 			productType = "com.apple.product-type.application";
 		};
+		52AD0ED32AEADAE900171620 /* GoRallyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52AD0EDA2AEADAEA00171620 /* Build configuration list for PBXNativeTarget "GoRallyTests" */;
+			buildPhases = (
+				52AD0ED02AEADAE900171620 /* Sources */,
+				52AD0ED12AEADAE900171620 /* Frameworks */,
+				52AD0ED22AEADAE900171620 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52AD0ED92AEADAEA00171620 /* PBXTargetDependency */,
+			);
+			name = GoRallyTests;
+			productName = GoRallyTests;
+			productReference = 52AD0ED42AEADAE900171620 /* GoRallyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,11 +258,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					524EDA682A8A5560007D2808 = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					52AD0ED32AEADAE900171620 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 524EDA682A8A5560007D2808;
 					};
 				};
 			};
@@ -234,6 +289,7 @@
 			projectRoot = "";
 			targets = (
 				524EDA682A8A5560007D2808 /* GoRally */,
+				52AD0ED32AEADAE900171620 /* GoRallyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,6 +306,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52AD0ED22AEADAE900171620 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -257,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AD0EE02AED0D5D00171620 /* LoginViewController.swift in Sources */,
 				524C8ABF2AA9EF3000A737B9 /* RouteShowViewController.swift in Sources */,
 				52B754EF2A8A5CA7002FA98D /* RoutesViewController.swift in Sources */,
 				52A843372A94ED4700D09A8D /* RouteTableViewCell.swift in Sources */,
@@ -280,7 +344,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52AD0ED02AEADAE900171620 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AD0ED72AEADAEA00171620 /* GoRallyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52AD0ED92AEADAEA00171620 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 524EDA682A8A5560007D2808 /* GoRally */;
+			targetProxy = 52AD0ED82AEADAEA00171620 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		524EDA722A8A5560007D2808 /* Main.storyboard */ = {
@@ -352,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -406,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -480,6 +560,44 @@
 			};
 			name = Release;
 		};
+		52AD0EDB2AEADAEA00171620 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874KCYK555;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donwolfton.GoRallyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoRally.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoRally";
+			};
+			name = Debug;
+		};
+		52AD0EDC2AEADAEA00171620 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 874KCYK555;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.donwolfton.GoRallyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoRally.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoRally";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,6 +615,15 @@
 			buildConfigurations = (
 				524EDA7E2A8A5563007D2808 /* Debug */,
 				524EDA7F2A8A5563007D2808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52AD0EDA2AEADAEA00171620 /* Build configuration list for PBXNativeTarget "GoRallyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52AD0EDB2AEADAEA00171620 /* Debug */,
+				52AD0EDC2AEADAEA00171620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

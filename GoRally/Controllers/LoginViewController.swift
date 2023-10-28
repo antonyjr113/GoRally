@@ -1,20 +1,19 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  GoRally
 //
-//  Created by Don Wolfton on 14.08.23.
+//  Created by Don Wolfton on 28.10.23.
 //
 
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTappedAround {
-    
+class LoginViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTappedAround {
+
+    var userData: Team?
+
     let userDefaults = UserDefaults.standard
 
-    var launchCount = 0
-
-
+    var isSuccessLogin: Bool!
 
     let helloTitle: UILabel = {
         let label = UILabel()
@@ -52,24 +51,77 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
         )
         return pass
     }()
-    
-    override func viewDidAppear(_ animated: Bool) {
-           showSplash()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
-        view.backgroundColor = .theme
-        createLoginForm()
-        isFirstLaunch = false
+
+        view.addSubview(helloTitle)
+        helloTitle.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(150)
+        }
+
+        view.addSubview(nameField)
+        nameField.font = .systemFont(ofSize: 30)
+        nameField.textColor = .texts
+        nameField.layer.borderWidth = 1
+        nameField.layer.cornerRadius = 3
+        nameField.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalToSuperview().offset(300)
+        }
+
+        view.addSubview(passwordField)
+        passwordField.font = .systemFont(ofSize: 30)
+        passwordField.textColor = .texts
+        passwordField.layer.borderWidth = 1
+        passwordField.layer.cornerRadius = 3
+        passwordField.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.top.equalToSuperview().offset(400)
+        }
+
+        view.addSubview(loginButton)
+        loginButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-50)
+            $0.width.equalTo(100)
+            $0.height.equalTo(50)
+        }
+        loginButton.layer.cornerRadius = 25
+        loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
     }
 
-    
+
     @objc func loginButtonTap() {
-        checkLoginStruct()
+
+        checkLoginStruct(name: nameField.text ?? "", pass: passwordField.text ?? "")
     }
-    
+
+    private func checkLoginStruct(name: String, pass: String) {
+
+        //userData = Team(teamName: nameField.text!, teamPass: passwordField.text!)
+
+        if teamsData.keys.contains(nameField.text!) && teamsData.values.contains(passwordField.text!) {
+            isSuccessLogin = true
+            createTabBar()
+            nameField.text = nil
+            passwordField.text = nil
+            userDefaults.set(userData?.teamName, forKey: "teamNameEntered")
+            userDefaults.set(userData?.teamPass, forKey: "teamPassEntered")
+        } else {
+            isSuccessLogin = false
+
+            let alert = UIAlertController(title: "Error", message: "Incorrect data! Try to rewrite your team name and password :)", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
+    }
+
     private func createTabBar() {
 
         let editVC = UINavigationController(rootViewController: RoutesViewController())
@@ -109,98 +161,23 @@ class ViewController: UIViewController, AvoidingKeyboard, HideKeyboardWhenTapped
             UITabBar.appearance().standardAppearance = tabBarApperance
         }
     }
-    
+
+     func showLogin() {
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .overFullScreen
+        self.present(loginVC, animated: false)
+
+    }
+
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
     }
-    
+
     @objc
     private func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-    private func checkLoginStruct() {
-
-        let userData = Team(teamName: nameField.text!, teamPass: passwordField.text!)
-
-        if teamsData.keys.contains(nameField.text!) && teamsData.values.contains(passwordField.text!) {
-            createTabBar()
-            nameField.text = nil
-            passwordField.text = nil
-            userDefaults.set(userData.teamName, forKey: "teamNameEntered")
-            userDefaults.set(userData.teamPass, forKey: "teamPassEntered")
-        } else {
-
-            let alert = UIAlertController(title: "Error", message: "Incorrect data! Try to rewrite your team name and password :)", preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: "Try again", style: .cancel, handler: nil))
-
-            self.present(alert, animated: true)
-        }
-    }
-    
-    private func showSplash() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard
-            let splashVC = storyboard.instantiateViewController(withIdentifier: "SplashScreenViewController") as? SplashScreenViewController
-        else {
-            return
-        }
-        splashVC.modalPresentationStyle = .overFullScreen
-        self.present(splashVC, animated: false)
-
-    }
-
-    private func createLoginForm() {
-    
-        view.addSubview(helloTitle)
-        helloTitle.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(150)
-        }
-    
-        view.addSubview(nameField)
-        nameField.font = .systemFont(ofSize: 30)
-        nameField.textColor = .texts
-        nameField.layer.borderWidth = 1
-        nameField.layer.cornerRadius = 3
-        nameField.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
-            $0.top.equalToSuperview().offset(300)
-        }
-    
-        view.addSubview(passwordField)
-        passwordField.font = .systemFont(ofSize: 30)
-        passwordField.textColor = .texts
-        passwordField.layer.borderWidth = 1
-        passwordField.layer.cornerRadius = 3
-        passwordField.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(15)
-            $0.trailing.equalToSuperview().offset(-15)
-            $0.top.equalToSuperview().offset(400)
-        }
-    
-        view.addSubview(loginButton)
-        loginButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-50)
-            $0.width.equalTo(100)
-            $0.height.equalTo(50)
-        }
-        loginButton.layer.cornerRadius = 25
-        loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
-    }
-
 }
-
-
-
-
-
-
-
-
